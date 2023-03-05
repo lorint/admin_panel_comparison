@@ -130,7 +130,7 @@ if ActiveRecord::Base.respond_to?(:brick_select) && !::Brick.initializer_loaded
   # Brick.not_nullables = ['users.name']
 
   # # String or text columns which for editing purposes should be treated as JSON.
-  # Brick.json_columns = [['User', 'info']]
+  # Brick.json_columns = { 'users' => ['info'] }
 
   # # FRIENDLY DSL
 

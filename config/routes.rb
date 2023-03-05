@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   # RailsAdmin
   mount RailsAdmin::Engine => '/ra', as: 'rails_admin' if Object.const_defined?('RailsAdmin')
 
+  mount Spina::Engine => '/spina' if Object.const_defined?('Spina')
+
   # Trestle
   # By default its Rails Engine is auto-mounted into a path defined in the trestle.rb initializer file.
 

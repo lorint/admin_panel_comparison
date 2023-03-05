@@ -24,6 +24,7 @@ gem 'avo'
 gem 'forest_liana', '~> 7'
 gem 'motor-admin'
 gem 'rails_admin'
+gem 'spina'
 gem 'trestle'
 
 # Use Sass to process CSS
