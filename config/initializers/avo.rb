@@ -136,14 +136,6 @@ Avo.configure do |config|
         resource :motor_tags, label: "Tags"
       end
     end
-
-    # section "Resources", icon: "resources" do
-    #   all_resources
-    # end
-
-    # section "Tools", icon: "tools" do
-    #   all_tools
-    # end
   }
   # config.profile_menu = -> {
   #   link "Profile", path: "/avo/profile", icon: "user-circle"
