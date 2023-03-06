@@ -26,6 +26,9 @@ gem 'motor-admin'
 gem 'rails_admin'
 gem 'trestle'
 
+# For Avo
+gem 'ransack'
+
 # Use Sass to process CSS
 gem 'sassc'
 # gem "sassc-rails" # For ActiveAdmin, Rails Admin and Trestle (which really only requires sassc)

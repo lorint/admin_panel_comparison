@@ -88,20 +88,63 @@ Avo.configure do |config|
   #   add_breadcrumb "Home", '/avo'
   # end
 
-  ## == Menus ==
-  # config.main_menu = -> {
-  #   section "Dashboards", icon: "dashboards" do
-  #     all_dashboards
-  #   end
+  # == Menus ==
+  config.main_menu = -> {
+    link_to "Avo Repo", "https://github.com/avo-hq/avo", target: :_blank
+    resource :active_admin_comments
 
-  #   section "Resources", icon: "resources" do
-  #     all_resources
-  #   end
+    section "E-commerce", icon: "shopping-cart" do
+      resource :customers
+      resource :orders
+      resource :order_details
+    end
 
-  #   section "Tools", icon: "tools" do
-  #     all_tools
-  #   end
-  # }
+    section "Warehouse", icon: "home-modern" do
+      resource :products
+      resource :employee
+      resource :categories
+    end
+
+    section "Motor", icon: "cog", collapsable: true, collapsed: true do
+      [
+        :motor_audits,
+        :motor_forms,
+        :motor_resources,
+        :motor_configs,
+        :motor_queries,
+        :motor_dashboards,
+        :motor_api_configs,
+      ].each do |resource_sym|
+        resource resource_sym, label: resource_sym.to_s.gsub("motor", "").titleize
+      end
+
+      group "Alerts", collapsable: true do
+        resource :motor_alerts, label: "Alerts"
+        resource :motor_alert_locks, label: "Alert Locks"
+        resource :motor_notifications, label: "Notifications"
+        resource :motor_reminders, label: "Reminders"
+      end
+
+      group "Notes", collapsable: true, collapsed: true do
+        resource :motor_notes, label: "Notes"
+        resource :motor_note_tags, label: "Note Tags"
+        resource :motor_note_tag_tags, label: "Note Tag Tags"
+      end
+
+      group "Tags", collapsable: true, collapsed: true do
+        resource :motor_taggable_tags, label: "Note Taggable Tags"
+        resource :motor_tags, label: "Tags"
+      end
+    end
+
+    # section "Resources", icon: "resources" do
+    #   all_resources
+    # end
+
+    # section "Tools", icon: "tools" do
+    #   all_tools
+    # end
+  }
   # config.profile_menu = -> {
   #   link "Profile", path: "/avo/profile", icon: "user-circle"
   # }
