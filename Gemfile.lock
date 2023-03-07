@@ -271,6 +271,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-linux)
+      racc (~> 1.4)
     openid_connect (1.4.2)
       activemodel
       attr_required (>= 1.0.0)
@@ -446,6 +448,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   activeadmin
@@ -465,6 +468,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rails_admin
+  ransack
   rgeo
   rswag-ui
   sassc
