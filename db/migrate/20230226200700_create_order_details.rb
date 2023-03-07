@@ -1,6 +1,7 @@
 class CreateOrderDetails < ActiveRecord::Migration[7.0]
   def change
-    return unless reverting? || !table_exists?(:order_details)
+    return unless reverting? || !table_exists?(:order_details) ||
+                  ActiveRecord::Base.connection.current_database == 'northwind'
 
     create_table :order_details, id: :serial, primary_key: :id do |t|
       t.decimal :unit_price

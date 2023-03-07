@@ -1,6 +1,7 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
   def change
-    return unless reverting? || !table_exists?(:products)
+    return unless reverting? || !table_exists?(:products) ||
+                  ActiveRecord::Base.connection.current_database == 'northwind'
 
     create_table :products, id: :serial, primary_key: :id do |t|
       t.string :product_name

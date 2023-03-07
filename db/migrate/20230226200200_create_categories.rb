@@ -1,6 +1,7 @@
 class CreateCategories < ActiveRecord::Migration[7.0]
   def change
-    return unless reverting? || !table_exists?(:categories)
+    return unless reverting? || !table_exists?(:categories) ||
+                  ActiveRecord::Base.connection.current_database == 'northwind'
 
     create_table :categories, id: :serial, primary_key: :id do |t|
       t.string :category_name

@@ -1,6 +1,7 @@
 class CreateEmployees < ActiveRecord::Migration[7.0]
   def change
-    return unless reverting? || !table_exists?(:employees)
+    return unless reverting? || !table_exists?(:employees) ||
+                  ActiveRecord::Base.connection.current_database == 'northwind'
 
     create_table :employees, id: :serial, primary_key: :id do |t|
       t.string :first_name

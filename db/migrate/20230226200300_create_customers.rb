@@ -1,6 +1,7 @@
 class CreateCustomers < ActiveRecord::Migration[7.0]
   def change
-    return unless reverting? || !table_exists?(:customers)
+    return unless reverting? || !table_exists?(:customers) ||
+                  ActiveRecord::Base.connection.current_database == 'northwind'
 
     create_table :customers, id: :serial, primary_key: :id do |t|
       t.string :company_code
